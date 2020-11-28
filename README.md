@@ -58,7 +58,7 @@ Then add the Smart Payment Button like this
 @include('laravel-paypal::checkout.button')
 ```
 
-Finally, after the code of this button add the javascript code to handle this button
+Finally, after the code of this button add the javascript code to handle it
 
 ```html
 <script src="{{ asset('js/paypal/checkout.js') }}" defer></script>
