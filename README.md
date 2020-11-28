@@ -1,5 +1,3 @@
-# Laravel PayPal
-
 <p align="center"><img src="https://blog.pleets.org/img/articles/laravel-paypal-icon.png" height="80"></p>
 
 Laravel integrator for PayPal solutions.
