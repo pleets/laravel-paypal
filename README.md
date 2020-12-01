@@ -72,3 +72,6 @@ Finally, after the code of this button add the javascript code to handle it
 ```html
 <script src="{{ asset('js/paypal/checkout.js') }}" defer></script>
 ```
+
+The `checkout.js` file contains values related to the purchase amount and purchase behaviour.
+For other values you can check the [official documentation](https://developer.paypal.com/docs/api/orders/v2#orders_create).
