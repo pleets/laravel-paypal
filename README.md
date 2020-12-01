@@ -9,7 +9,7 @@
 
 Laravel integrator for PayPal solutions. Actually this library supports the following solutions:
 
-- [Checkout (Smart Payment Buttons)](#3.1-Checkout-(Smart-Payment-Buttons))
+- [Checkout (Smart Payment Buttons)](#31-Checkout-(Smart-Payment-Buttons))
 
 ## 1. Requirements
 
