@@ -1,5 +1,11 @@
 <p align="center"><img src="https://blog.pleets.org/img/articles/laravel-paypal-icon.png" height="80"></p>
 
+<p align="center">
+<a href="https://travis-ci.org/pleets/laravel-paypal"><img src="https://travis-ci.org/pleets/laravel-paypal.svg?branch=master" alt="Build Status"></a>
+<a href="https://scrutinizer-ci.com/g/pleets/laravel-paypal"><img src="https://img.shields.io/scrutinizer/g/pleets/laravel-paypal.svg" alt="Code Quality"></a>
+<a href="https://scrutinizer-ci.com/g/pleets/laravel-paypal/?branch=master"><img src="https://scrutinizer-ci.com/g/pleets/laravel-paypal/badges/coverage.png?b=master" alt="Code Coverage"></a>
+</p>
+
 Laravel integrator for PayPal solutions.
 
 ## 1. Requirements
