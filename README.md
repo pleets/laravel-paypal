@@ -7,7 +7,9 @@
 <a href="https://scrutinizer-ci.com/g/pleets/laravel-paypal/?branch=master"><img src="https://scrutinizer-ci.com/g/pleets/laravel-paypal/badges/coverage.png?b=master" alt="Code Coverage"></a>
 </p>
 
-Laravel integrator for PayPal solutions.
+Laravel integrator for PayPal solutions. Actually this library supports the following solutions:
+
+- [Checkout (Smart Payment Buttons)](#31-checkout-smart-payment-buttons)
 
 ## 1. Requirements
 
@@ -70,3 +72,6 @@ Finally, after the code of this button add the javascript code to handle it
 ```html
 <script src="{{ asset('js/paypal/checkout.js') }}" defer></script>
 ```
+
+The `checkout.js` file contains values related to the purchase amount and purchase behaviour.
+For other values you can check the [official documentation](https://developer.paypal.com/docs/api/orders/v2#orders_create).
