@@ -7,7 +7,9 @@
 <a href="https://scrutinizer-ci.com/g/pleets/laravel-paypal/?branch=master"><img src="https://scrutinizer-ci.com/g/pleets/laravel-paypal/badges/coverage.png?b=master" alt="Code Coverage"></a>
 </p>
 
-Laravel integrator for PayPal solutions.
+Laravel integrator for PayPal solutions. Actually this library supports the following solutions:
+
+- [Checkout (Smart Payment Buttons)](#3.1-Checkout-(Smart-Payment-Buttons))
 
 ## 1. Requirements
 
