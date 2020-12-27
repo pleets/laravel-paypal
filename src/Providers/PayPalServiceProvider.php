@@ -15,7 +15,7 @@ class PayPalServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(PayPalService::class, function() {
+        $this->app->bind(PayPalService::class, function () {
             $paypalService = new PayPalService(Environment::getEndpoint());
             $paypalService->setAuth(Environment::getClientId(), Environment::getSecret());
             return $paypalService;
