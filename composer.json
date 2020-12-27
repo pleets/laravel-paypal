@@ -19,12 +19,15 @@
             "Tests\\Pleets\\LaravelPayPal\\": "tests/"
         }
     },
+    "require": {
+        "php": "7.4.*",
+        "ext-json": "*",
+        "laravel/framework": "^8.16",
+        "payment-gateways/paypal-sdk": "^1.0"
+    },
     "require-dev": {
         "phpunit/phpunit": "^9.4",
         "squizlabs/php_codesniffer": "^3.5"
-    },
-    "require": {
-        "laravel/framework": "^8.16"
     },
     "scripts": {
         "phpunit": "phpunit --stop-on-error --stop-on-failure --testdox",
