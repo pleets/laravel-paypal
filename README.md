@@ -40,7 +40,7 @@ php artisan vendor:publish --tag="laravel-paypal"
 
 ## 3. Usage
 
-Set up first api credentials for sandox with the following env vars.
+Set up first api credentials for sandbox with the following env vars.
 
 ```properties
 PAYPAL_SANDBOX_CLIENT_ID=
@@ -53,7 +53,7 @@ For live environment set up the following.
 PAYPAL_LIVE_CLIENT_ID=
 PAYAL_LIVE_SECRET=
 ```
-And you can choose your current environment with the following.
+Finally you can choose your current environment with the following.
 
 ```properties
 PAYPAL_ENVIRONMENT=sandbox
@@ -61,13 +61,13 @@ PAYPAL_ENVIRONMENT=sandbox
 
 ## 3.1 Checkout
 
-Activate paypal checkout with the following en var.
+Activate paypal checkout with the following env var.
 
 ```properties
 PAYPAL_CHECKOUT_ACTIVATED=true
 ```
 
-Add the PayPal SDK to your blade template as follows
+Add the PayPal SDK to your blade templates as follows
 
 ```blade
 @include('laravel-paypal::checkout.sdk')
@@ -103,7 +103,7 @@ to your `providers[]` array in `config/app.php` file like:
 Pleets\LaravelPayPal\Providers\PayPalServiceProvider::class
 ```
 
-Add the PayPal SDK to your blade template as follows
+Add the PayPal SDK to your blade templates as follows
 
 ```blade
 @include('laravel-paypal::subscriptions.sdk')
@@ -115,7 +115,7 @@ Then add the Smart Payment Button like this
 @include('laravel-paypal::subscriptions.button')
 ```
 
-Finally, after the code of this button add the javascript code to handle it
+Finally, add the javascript code to handle this button below of it
 
 ```html
 <script src="{{ asset('js/paypal/subscriptions.js') }}" defer></script>
