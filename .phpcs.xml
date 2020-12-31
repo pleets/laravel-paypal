@@ -2,7 +2,6 @@
 <ruleset name="PHP Coding Standards" namespace="Pleets\CS\Standard">
 
     <file>./src</file>
-    <file>./tests</file>
 
     <exclude-pattern>./tests/coverage/*</exclude-pattern>
 
