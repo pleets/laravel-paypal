@@ -22,7 +22,7 @@
     "require": {
         "php": "7.4.*",
         "ext-json": "*",
-        "laravel/framework": "^8.0 || ^7.0",
+        "laravel/framework": "^7.0 || ^8.0",
         "payment-gateways/paypal-sdk": "^1.0"
     },
     "require-dev": {
