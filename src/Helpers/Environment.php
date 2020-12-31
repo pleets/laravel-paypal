@@ -33,9 +33,14 @@ class Environment
         return config('paypal.api.' . self::getCurrentEnvironment() . '.endpoint');
     }
 
-    public static function activated(): bool
+    public static function isCheckoutActivated(): bool
     {
-        return config('paypal.checkout.activated') || config('paypal.subscription.activated');
+        return config('paypal.checkout.activated');
+    }
+
+    public static function areSubscriptionsActivated(): bool
+    {
+        return config('paypal.subscription.activated');
     }
 
     private static function getCurrentEnvironment()
