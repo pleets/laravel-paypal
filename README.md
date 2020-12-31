@@ -16,7 +16,7 @@ Laravel integrator for PayPal solutions. Actually this library supports the foll
 You need to make sure your server meets the following requirements.
 
 - PHP >= 7.4
-- Laravel 8.x
+- Laravel 7.x, 8.x
 
 ## 2. Installation
 
@@ -40,14 +40,26 @@ php artisan vendor:publish --tag="laravel-paypal"
 
 ## 3. Usage
 
-Set up first api credentials with the following env vars.
+Set up first api credentials for sandox with the following env vars.
 
 ```properties
-PAYPAL_CLIENT_ID=
-PAYPAL_SECRET=
+PAYPAL_SANDBOX_CLIENT_ID=
+PAYAL_SANDBOX_SECRET=
 ```
 
-## 3.1 Checkout (Smart Payment Buttons)
+For live environment set up the following.
+
+```properties
+PAYPAL_LIVE_CLIENT_ID=
+PAYAL_LIVE_SECRET=
+```
+And you can choose your current environment with the following.
+
+```properties
+PAYPAL_ENVIRONMENT=sandbox
+```
+
+## 3.1 Checkout
 
 Activate paypal checkout with the following en var.
 
@@ -75,3 +87,39 @@ Finally, after the code of this button add the javascript code to handle it
 
 The `checkout.js` file contains values related to the purchase amount and purchase behaviour.
 For other values you can check the [official documentation](https://developer.paypal.com/docs/api/orders/v2#orders_create).
+
+## 3.2 Subscriptions
+
+Activate paypal subscriptions with the following en var.
+
+```properties
+PAYPAL_SUBSCRIPTION_ACTIVATED=true
+```
+
+You can interact with subscriptions Api through this [PayPal SDK](payment-gateways/paypal-sdk). Add the service provider
+to your `providers[]` array in `config/app.php` file like:
+
+```php
+Pleets\LaravelPayPal\Providers\PayPalServiceProvider::class
+```
+
+Add the PayPal SDK to your blade template as follows
+
+```blade
+@include('laravel-paypal::subscriptions.sdk')
+```
+
+Then add the Smart Payment Button like this
+
+```blade
+@include('laravel-paypal::subscriptions.button')
+```
+
+Finally, after the code of this button add the javascript code to handle it
+
+```html
+<script src="{{ asset('js/paypal/subscriptions.js') }}" defer></script>
+```
+
+The `subscriptions.js` file contains values related to creating subscriptions and purchase behaviour.
+For other values you can check the [official documentation](https://developer.paypal.com/docs/subscriptions/integrate/#create-the-subscription).
