@@ -5,8 +5,8 @@ namespace Pleets\LaravelPayPal\Helpers;
 class Environment
 {
     public const SANDBOX = 'sandbox';
-
     public const LIVE = 'live';
+    public const API_CONF = 'paypal.api';
 
     public static function isSandbox(): bool
     {
@@ -20,17 +20,17 @@ class Environment
 
     public static function getClientId()
     {
-        return config('paypal.api.' . self::getCurrentEnvironment() . '.credentials.client_id');
+        return config(self::API_CONF . '.' . self::getCurrentEnvironment() . '.credentials.client_id');
     }
 
     public static function getSecret()
     {
-        return config('paypal.api.' . self::getCurrentEnvironment() . '.credentials.secret');
+        return config(self::API_CONF . '.' . self::getCurrentEnvironment() . '.credentials.secret');
     }
 
     public static function getEndpoint()
     {
-        return config('paypal.api.' . self::getCurrentEnvironment() . '.endpoint');
+        return config(self::API_CONF . '.' . self::getCurrentEnvironment() . '.endpoint');
     }
 
     public static function isCheckoutActivated(): bool
@@ -45,6 +45,6 @@ class Environment
 
     private static function getCurrentEnvironment()
     {
-        return config('paypal.api.environment');
+        return config(self::API_CONF . '.environment');
     }
 }
