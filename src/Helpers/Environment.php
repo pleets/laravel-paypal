@@ -6,7 +6,7 @@ class Environment
 {
     public const SANDBOX = 'sandbox';
     public const LIVE = 'live';
-    public const API_CONF = 'paypal.api';
+    private const API_CONF = 'paypal.api';
 
     public static function isSandbox(): bool
     {
