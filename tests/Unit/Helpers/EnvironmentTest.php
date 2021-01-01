@@ -10,6 +10,8 @@ class EnvironmentTest extends TestCase
 {
     use HasEnvironments;
 
+    private const CONF_ENV_KEY = 'paypal.api.environment';
+
     /**
      * @test
      */
@@ -17,7 +19,7 @@ class EnvironmentTest extends TestCase
     {
         $this->assertTrue(Environment::isSandbox());
         $this->assertFalse(Environment::isLive());
-        $this->assertSame(Environment::SANDBOX, config('paypal.api.environment'));
+        $this->assertSame(Environment::SANDBOX, config(self::CONF_ENV_KEY));
     }
 
     /**
@@ -25,11 +27,11 @@ class EnvironmentTest extends TestCase
      */
     public function itSetupsLiveEnvironment()
     {
-        app('config')->set('paypal.api.environment', Environment::LIVE);
+        app('config')->set(self::CONF_ENV_KEY, Environment::LIVE);
 
         $this->assertTrue(Environment::isLive());
         $this->assertFalse(Environment::isSandbox());
-        $this->assertSame(Environment::LIVE, config('paypal.api.environment'));
+        $this->assertSame(Environment::LIVE, config(self::CONF_ENV_KEY));
     }
 
     /**
@@ -39,7 +41,7 @@ class EnvironmentTest extends TestCase
      */
     public function itGetsTheClientIdForTheCurrentEnvironment(string $environment)
     {
-        app('config')->set('paypal.api.environment', $environment);
+        app('config')->set(self::CONF_ENV_KEY, $environment);
         app('config')->set('paypal.api.' . $environment . '.credentials.client_id', uniqid());
 
         $this->assertSame(
@@ -55,7 +57,7 @@ class EnvironmentTest extends TestCase
      */
     public function itGetsTheClientSecretForTheCurrentEnvironment(string $environment)
     {
-        app('config')->set('paypal.api.environment', $environment);
+        app('config')->set(self::CONF_ENV_KEY, $environment);
         app('config')->set('paypal.api.' . $environment . '.credentials.secret', uniqid());
 
         $this->assertSame(
@@ -71,7 +73,7 @@ class EnvironmentTest extends TestCase
      */
     public function itGetsTheEndpointForTheCurrentEnvironment(string $environment)
     {
-        app('config')->set('paypal.api.environment', $environment);
+        app('config')->set(self::CONF_ENV_KEY, $environment);
         app('config')->set('paypal.api.' . $environment . '.endpoint', 'http://example.com/' . uniqid());
 
         $this->assertSame(
