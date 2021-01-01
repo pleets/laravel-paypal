@@ -13,3 +13,4 @@ before_script:
 
 script:
   - composer phpcs-auto-check-project
+  - composer phpunit
