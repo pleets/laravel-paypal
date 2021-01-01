@@ -13,7 +13,7 @@ class Environment
         return self::getCurrentEnvironment() === self::SANDBOX;
     }
 
-    public static function isLive()
+    public static function isLive(): bool
     {
         return self::getCurrentEnvironment() === self::LIVE;
     }
