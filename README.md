@@ -41,7 +41,9 @@ php artisan vendor:publish --tag="laravel-paypal"
 
 ## 3. Usage
 
-Set up first api credentials for sandbox with the following env vars.
+## 3.1 Live and Sandbox environments
+
+Set up first API credentials for sandbox with the following env vars.
 
 ```properties
 PAYPAL_SANDBOX_CLIENT_ID=
@@ -54,10 +56,28 @@ For live environment set up the following.
 PAYPAL_LIVE_CLIENT_ID=
 PAYAL_LIVE_SECRET=
 ```
-Finally you can choose your current environment with the following.
+You can choose your current environment with the following.
 
 ```properties
 PAYPAL_ENVIRONMENT=sandbox
+```
+
+## 3.2 Mocking
+
+If you want to mock the PayPal Service for testing purposes, you should set up the following
+
+```properties
+PAYPAL_HANDLER_ENABLED=true
+```
+
+Also, you must set up the `PayPalService` handler in `config/paypal/api.php` file. You can use for example the
+[PayPal Api Mock](https://github.com/payment-gateways/paypal-api-mock).
+
+```php
+'handler' => [
+    'class' => PaymentGateway\PayPalApiMock\PayPalApiMock::class,
+    ...
+]
 ```
 
 ## 3.1 Checkout
