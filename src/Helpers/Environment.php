@@ -33,6 +33,16 @@ class Environment
         return config(self::API_CONF . '.' . self::getCurrentEnvironment() . '.endpoint');
     }
 
+    public static function isHandlerEnabled(): bool
+    {
+        return config(self::API_CONF . '.handler.enabled');
+    }
+
+    public static function getHandler()
+    {
+        return config(self::API_CONF . '.handler.class');
+    }
+
     public static function isCheckoutActivated(): bool
     {
         return config('paypal.checkout.activated');
