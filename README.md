@@ -47,14 +47,14 @@ Set up first API credentials for sandbox with the following env vars.
 
 ```properties
 PAYPAL_SANDBOX_CLIENT_ID=
-PAYAL_SANDBOX_SECRET=
+PAYPAL_SANDBOX_SECRET=
 ```
 
 For live environment set up the following.
 
 ```properties
 PAYPAL_LIVE_CLIENT_ID=
-PAYAL_LIVE_SECRET=
+PAYPAL_LIVE_SECRET=
 ```
 You can choose your current environment with the following.
 
