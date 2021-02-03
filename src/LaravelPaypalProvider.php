@@ -19,6 +19,8 @@ class LaravelPaypalProvider extends ServiceProvider
 
     private function loadConfig(): void
     {
+        $this->mergeConfigFrom(__DIR__ . '/../config/paypal/testing.php', 'paypal.testing');
+
         $this->publishes(
             [
                 __DIR__ . '/../config/paypal' => config_path('paypal'),

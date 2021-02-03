@@ -18,8 +18,4 @@ return [
         'endpoint' => 'https://api.paypal.com',
     ],
     'environment' => env('PAYPAL_ENVIRONMENT', Environment::SANDBOX),
-    'handler' => [
-        'class' => '',
-        'enabled' => env('PAYPAL_HANDLER_ENABLED', false),
-    ]
 ];
