@@ -16,7 +16,7 @@ Laravel integrator for PayPal solutions. Actually this library supports the foll
 
 You need to make sure your server meets the following requirements.
 
-- PHP >= 7.4
+- PHP >= 7.4, PHP >= 8.0
 - Laravel 7.x, 8.x
 
 ## 2. Installation
