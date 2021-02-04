@@ -35,12 +35,12 @@ class Environment
 
     public static function isHandlerEnabled(): bool
     {
-        return config(self::API_CONF . '.handler.enabled');
+        return config('paypal.testing.handler.enabled');
     }
 
     public static function getHandler()
     {
-        return config(self::API_CONF . '.handler.class');
+        return config('paypal.testing.handler.class');
     }
 
     public static function isCheckoutActivated(): bool

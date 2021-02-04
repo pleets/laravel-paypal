@@ -2,13 +2,13 @@
 
 namespace Tests\Pleets\LaravelPayPal;
 
-use Pleets\LaravelPayPal\Providers\PayPalServiceProvider;
+use Pleets\LaravelPayPal\LaravelPaypalProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
     protected function getPackageProviders($app)
     {
-        return [PayPalServiceProvider::class];
+        return [LaravelPaypalProvider::class];
     }
 
     public function setUp(): void

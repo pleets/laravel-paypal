@@ -47,14 +47,14 @@ Set up first API credentials for sandbox with the following env vars.
 
 ```properties
 PAYPAL_SANDBOX_CLIENT_ID=
-PAYAL_SANDBOX_SECRET=
+PAYPAL_SANDBOX_SECRET=
 ```
 
 For live environment set up the following.
 
 ```properties
 PAYPAL_LIVE_CLIENT_ID=
-PAYAL_LIVE_SECRET=
+PAYPAL_LIVE_SECRET=
 ```
 You can choose your current environment with the following.
 
@@ -62,22 +62,25 @@ You can choose your current environment with the following.
 PAYPAL_ENVIRONMENT=sandbox
 ```
 
+The only valid values for this are `sandbox` and `live`.
+
 ## 3.2 Mocking
 
-If you want to mock the PayPal Service for testing purposes, you should set up the following
-
-```properties
-PAYPAL_HANDLER_ENABLED=true
-```
-
-Also, you must set up the `PayPalService` handler in `config/paypal/api.php` file. You can use for example the
-[PayPal Api Mock](https://github.com/payment-gateways/paypal-api-mock).
+If you want to mock the PayPal Service for testing purposes, you need to overwrite the paypal testing configuration. 
+You must create a `testing.php` file inside `config/paypal` folder and set up a specific handler like this.
 
 ```php
 'handler' => [
     'class' => PaymentGateway\PayPalApiMock\PayPalApiMock::class,
-    ...
 ]
+```
+
+Feel free to use your own paypal mock, or you can use this [PayPal Api Mock](https://github.com/payment-gateways/paypal-api-mock).
+
+Finally, you should set up the following in your testing environment.
+
+```properties
+PAYPAL_HANDLER_ENABLED=true
 ```
 
 ## 3.1 Checkout
