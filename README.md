@@ -64,26 +64,7 @@ PAYPAL_ENVIRONMENT=sandbox
 
 The only valid values for this are `sandbox` and `live`.
 
-## 3.2 Mocking
-
-If you want to mock the PayPal Service for testing purposes, you need to overwrite the paypal testing configuration. 
-You must create a `testing.php` file inside `config/paypal` folder and set up a specific handler like this.
-
-```php
-'handler' => [
-    'class' => PaymentGateway\PayPalApiMock\PayPalApiMock::class,
-]
-```
-
-Feel free to use your own paypal mock, or you can use this [PayPal Api Mock](https://github.com/payment-gateways/paypal-api-mock).
-
-Finally, you should set up the following in your testing environment.
-
-```properties
-PAYPAL_HANDLER_ENABLED=true
-```
-
-## 3.1 Checkout
+## 3.2 Checkout
 
 Activate paypal checkout with the following env var.
 
@@ -97,13 +78,17 @@ Add the PayPal SDK to your blade templates as follows
 @include('laravel-paypal::checkout.sdk')
 ```
 
-Then add the Smart Payment Button like this
+:bulb: You don't have to be worried about when to include this SDK. The component checks for `PAYPAL_CHECKOUT_ACTIVATED`
+and then include the JavaScript SDK in case the value were true.
+
+Then you can add the Smart Payment Button like this
 
 ```blade
 @include('laravel-paypal::checkout.button')
 ```
 
-Finally, after the code of this button add the javascript code to handle it
+:warning: Finally, after the code of this button add the javascript code to handle it. This JS file is not intended to be used for production.
+It is just an example about how to handle the PayPal button.
 
 ```html
 <script src="{{ asset('js/paypal/checkout.js') }}" defer></script>
@@ -112,7 +97,7 @@ Finally, after the code of this button add the javascript code to handle it
 The `checkout.js` file contains values related to the purchase amount and purchase behaviour.
 For other values you can check the [official documentation](https://developer.paypal.com/docs/api/orders/v2#orders_create).
 
-## 3.2 Subscriptions
+## 3.3 Subscriptions
 
 Activate paypal subscriptions with the following en var.
 
@@ -133,13 +118,17 @@ Add the PayPal SDK to your blade templates as follows
 @include('laravel-paypal::subscriptions.sdk')
 ```
 
-Then add the Smart Payment Button like this
+:bulb: You don't have to be worried about when to include this SDK. The component checks for `PAYPAL_SUBSCRIPTION_ACTIVATED`
+and then include the JavaScript SDK in case the value were true.
+
+Then you can add the Smart Payment Button like this
 
 ```blade
 @include('laravel-paypal::subscriptions.button')
 ```
 
-Finally, add the javascript code to handle this button below of it
+:warning: Finally, after the code of this button add the javascript code to handle it. This JS file is not intended to be used for production.
+It is just an example about how to handle the PayPal button.
 
 ```html
 <script src="{{ asset('js/paypal/subscriptions.js') }}" defer></script>
@@ -147,3 +136,22 @@ Finally, add the javascript code to handle this button below of it
 
 The `subscriptions.js` file contains values related to creating subscriptions and purchase behaviour.
 For other values you can check the [official documentation](https://developer.paypal.com/docs/subscriptions/integrate/#create-the-subscription).
+
+## 4. Mocking
+
+If you want to mock the PayPal Service for testing purposes, you need to overwrite the paypal testing configuration.
+You must create a `testing.php` file inside `config/paypal` folder and set up a specific handler like this.
+
+```php
+'handler' => [
+    'class' => PaymentGateway\PayPalApiMock\PayPalApiMock::class,
+]
+```
+
+Feel free to use your own paypal mock, or you can use this [PayPal Api Mock](https://github.com/payment-gateways/paypal-api-mock).
+
+Finally, you should set up the following in your testing environment.
+
+```properties
+PAYPAL_HANDLER_ENABLED=true
+```
